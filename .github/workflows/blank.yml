@@ -10,7 +10,7 @@ on:
 
 jobs:
   linux:
-    runs-on: self-hosted
+    runs-on: ray-runner
     steps:
       - name: Run a one-line script
         run: printenv
