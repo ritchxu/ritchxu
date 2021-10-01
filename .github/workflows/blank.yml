@@ -14,10 +14,3 @@ jobs:
     steps:
       - name: Run a one-line script
         run: printenv
-  
-  windows:
-    runs-on: windows-latest
-    steps:
-      - name: Run a one-line script
-        shell: pwsh
-        run: "dir env:"
