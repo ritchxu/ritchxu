@@ -10,7 +10,12 @@ on:
 
 jobs:
   linux:
-    runs-on: ray-runner
+    runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
-        run: printenv
+      - name: Install docker
+        run: |
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sudo sh get-docker.sh
+          
+      - name: Run hello world
+        run: sudo docker run hello-world
