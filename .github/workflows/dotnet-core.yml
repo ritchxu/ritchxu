@@ -23,7 +23,7 @@ jobs:
         path: ./test.txt
     
     - name: test2
-      run: echo "test1" > ./test.txt
+      run: echo "test2" > ./test.txt
     
     - uses: actions/upload-artifact@v2
       with:
