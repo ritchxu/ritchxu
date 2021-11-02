@@ -14,12 +14,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: printenv
-      shell: pwsh
-      run: |
-        dir env:
-    
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - name: test1
+      run: echo "test1" > /test.txt
+      
+    - uses: actions/upload-artifact@v2
       with:
-        dotnet-version: 3.1.x
+        name: hello
+        path: /test.txt
+    
+    - name: test2
+      run: echo "test1" > /test.txt
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: hello
+        path: /test.txt
