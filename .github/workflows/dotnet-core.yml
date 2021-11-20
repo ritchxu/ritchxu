@@ -30,6 +30,10 @@ jobs:
         name: hello
         path: ./test.txt
     
+    - name: env
+      shell: pwsh
+      run: echo $env:GITHUB_REF
+    
     - name: pwsh
       shell: pwsh
       run: echo '${{ github.ref_name }}'
