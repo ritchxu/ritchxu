@@ -29,3 +29,7 @@ jobs:
       with:
         name: hello
         path: ./test.txt
+    
+    - name: pwsh
+      shell: pwsh
+      run: echo '${{ github.ref_name }}'
