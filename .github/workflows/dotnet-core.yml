@@ -13,23 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: test1
-      run: echo "test1" > ./test.txt
-      
-    - uses: actions/upload-artifact@v2
-      with:
-        name: hello
-        path: ./test.txt
-    
-    - name: test2
-      run: echo "test2" > ./test.txt
-    
-    - uses: actions/upload-artifact@v2
-      with:
-        name: hello
-        path: ./test.txt
     
     - name: pwsh
       shell: pwsh
       run: echo '${{ github.ref_name }}'
+
+    - name: pwsh
+      shell: pwsh
+      run: printenv
