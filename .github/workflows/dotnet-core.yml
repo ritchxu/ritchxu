@@ -6,34 +6,23 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: test1
-      run: echo "test1" > ./test.txt
-      
-    - uses: actions/upload-artifact@v2
+    - name: 'OIDC login'
+      uses: azure/login@v1
       with:
-        name: hello
-        path: ./test.txt
-    
-    - name: test2
-      run: echo "test2" > ./test.txt
-    
-    - uses: actions/upload-artifact@v2
-      with:
-        name: hello
-        path: ./test.txt
-    
-    - name: env
-      shell: pwsh
-      run: echo $env:GITHUB_REF
-    
-    - name: pwsh
-      shell: pwsh
-      run: echo '${{ github.ref_name }}'
+        client-id: ed91d9d8-a71d-4b0c-b4a4-64ae79005d7b
+        tenant-id: 72f988bf-86f1-41af-91ab-2d7cd011db47
+        subscription-id: 8a53cb9a-a3a5-4602-aa2d-8c171edde3c7
+    - name: 'Run az commands'
+      run: |
+        az account show
+        az group list
