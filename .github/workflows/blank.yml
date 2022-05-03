@@ -2,20 +2,20 @@
 
 name: CI
 
-env:
-  iAmCamel: 'IaMcAMEL'
-
 on:
   workflow_dispatch:
 
 jobs:
   linux:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - name: Install docker
-        run: |
-          curl -fsSL https://get.docker.com -o get-docker.sh
-          sudo sh get-docker.sh
+      - name: output
+        run: |-
+          echo "::set-output name=CMD::Hi"
+          pwsh -Command 'Write-Output "::set-output name=PWSH::Hello"'
+        shell: cmd
           
-      - name: Run hello world
-        run: sudo docker run hello-world
+      - name: display
+        run: |-
+          Write-Output "cmd output is ${{ steps.output.outputs.CMD }}"
+          Write-Output "pwsh output is ${{ steps.output.outputs.PWSH }}"
