@@ -13,7 +13,7 @@ jobs:
         id: set
         run: |-
           echo "::set-output name=CMD::Hi"
-          pwsh -Command 'Write-Output "::set-output name=PWSH::Hello"'
+          pwsh -Command "Write-Output '::set-output name=PWSH::Hello'"
         shell: cmd
 
       - name: display
