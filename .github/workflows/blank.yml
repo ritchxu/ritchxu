@@ -9,14 +9,7 @@ jobs:
   playground:
     runs-on: windows-latest
     steps:
-      - name: set
-        id: set
-        run: |-
-          echo ::set-output name=CMD::Hi
-          pwsh -Command "Write-Output '::set-output name=PWSH::Hello'"
-        shell: cmd
-
       - name: display
         run: |-
-          Write-Output "cmd output is ${{ steps.set.outputs.CMD }}"
-          Write-Output "pwsh output is ${{ steps.set.outputs.PWSH }}"
+          Write-Output "run_id ${{ github.run_id }}"
+          Write-Output "run_number ${{ github.run_number }}"
