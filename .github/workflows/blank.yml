@@ -11,5 +11,4 @@ jobs:
     steps:
       - name: display
         run: |-
-          Write-Output "run_id ${{ github.run_id }}"
-          Write-Output "run_number ${{ github.run_number }}"
+          Write-Host "::error::Missing semicolon"
