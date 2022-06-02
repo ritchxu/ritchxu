@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: display
         run: |-
-          Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon\nfoo\nbar"
+          Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon%0Afoo%0Abar"
