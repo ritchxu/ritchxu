@@ -9,6 +9,7 @@ jobs:
   playground:
     runs-on: windows-latest
     steps:
+      - uses: actions/checkout@v3
       - name: display
         run: ./0.2.9-preview2/Build.ps1
         shell: powershell
