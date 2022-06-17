@@ -4,7 +4,8 @@
 
 #Requires -Version 5.1 # Shipped w/ Windows 10 1607 and Windows Server 2016
 param(
-    [Parameter(Mandatory=$true)][String]$AzureRelayBridgeRepo)
+    [Parameter(Mandatory=$false)][String]$AzureRelayBridgeRepo = 'AzureRelayBridge'
+)
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -35,7 +36,6 @@ $null = $version -match '(?<=-).*'
 $versionSuffix = $Matches[0]
 $commitId = '56b7f3b04718e253d416271f277a41280cfb948b'
 
-$AzureRelayBridgeRepo = "AzureRelayBridge"
 git clone --no-checkout https://github.com/Azure/azure-relay-bridge $AzureRelayBridgeRepo
 CheckExitCode
 
