@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Actions Windows
+name: Playground
 
 on:
   workflow_dispatch:
@@ -10,6 +10,5 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: display
-        run: |-
-          dir env:
-          Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon%0Afoo%0Abar"
+        run: ./0.2.9-preview2/Build.ps1
+        shell: powershell
