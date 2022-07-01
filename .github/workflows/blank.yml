@@ -7,7 +7,7 @@ on:
 
 jobs:
   playground:
-    environment: ''
+    environment: test
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
