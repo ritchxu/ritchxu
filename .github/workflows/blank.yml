@@ -8,8 +8,11 @@ on:
 jobs:
   playground:
     environment: test
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: helloWorld
-        run: echo helloWorld
+        shell: bash
+        run: command -v pwsh
+      - name: helloWorld
+        shell: pwsh
+        run: command -v pwsh
