@@ -12,7 +12,4 @@ jobs:
     steps:
       - name: helloWorld
         shell: bash
-        run: command -v pwsh
-      - name: helloWorld
-        shell: pwsh
-        run: command -v pwsh
+        run: printenv
