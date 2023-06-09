@@ -8,8 +8,15 @@ on:
 jobs:
   playground:
     environment: test
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: helloWorld
         shell: bash
         run: printenv
+  playground-windows:
+    environment: test
+    runs-on: windows-latest
+    steps:
+      - name: helloWorld
+        shell: pwsh
+        run: dir env:
