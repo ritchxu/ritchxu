@@ -19,4 +19,5 @@ jobs:
     steps:
       - name: helloWorld
         shell: pwsh
-        run: dir env:
+        run: |
+          dir env:
