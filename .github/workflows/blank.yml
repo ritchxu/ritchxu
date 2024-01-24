@@ -13,8 +13,12 @@ jobs:
       - name: helloWorld
         shell: bash
         run: |
-          cat /proc/sys/net/ipv4/tcp_keepalive_time
-          cat /proc/sys/net/ipv4/tcp_keepalive_probes
+          sudo sh -c "echo 200 > /proc/sys/net/ipv4/tcp_keepalive_time"
+          sudo sh -c "echo 20 > /proc/sys/net/ipv4/tcp_keepalive_probes"
+
+          sysctl \
+          net.ipv4.tcp_keepalive_time \
+          net.ipv4.tcp_keepalive_probes
   playground-windows:
     environment: test
     runs-on: windows-latest
