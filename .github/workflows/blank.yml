@@ -13,8 +13,8 @@ jobs:
       - name: helloWorld
         shell: bash
         run: |
-          echo /proc/sys/net/ipv4/tcp_keepalive_time
-          echo /proc/sys/net/ipv4/tcp_keepalive_probes
+          cat /proc/sys/net/ipv4/tcp_keepalive_time
+          cat /proc/sys/net/ipv4/tcp_keepalive_probes
   playground-windows:
     environment: test
     runs-on: windows-latest
