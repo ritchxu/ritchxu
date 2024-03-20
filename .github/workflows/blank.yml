@@ -27,3 +27,5 @@ jobs:
         shell: pwsh
         run: |
           dir env:
+          Write-Information "Hi info"
+          Write-Host "Hi host"
