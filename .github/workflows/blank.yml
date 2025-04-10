@@ -13,6 +13,8 @@ jobs:
       - name: helloWorld
         shell: bash
         run: |
+          python --version
+
           sudo sh -c "echo 200 > /proc/sys/net/ipv4/tcp_keepalive_time"
           sudo sh -c "echo 20 > /proc/sys/net/ipv4/tcp_keepalive_probes"
 
