@@ -1,3 +1,3 @@
 # ritchxu 😄
 
-Last updated:
+Last updated: [This will be updated automatically]
