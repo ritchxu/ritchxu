@@ -1,0 +1,51 @@
+name: Update README
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Update README timestamp
+      run: |
+        # Get current date and time
+        CURRENT_DATE=$(date -u "+%Y-%m-%d %H:%M:%S UTC")
+        
+        # Update the README file with current timestamp
+        sed -i "s/Last updated: .*/Last updated: $CURRENT_DATE/" README.md
+        
+        # Also add a dynamic badge with build number
+        BUILD_NUMBER="${{ github.run_number }}"
+        sed -i "s/\[This will be updated automatically\]/Build #$BUILD_NUMBER - $CURRENT_DATE/" README.md
+    
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        git commit -m "Auto-update README with timestamp [skip ci]"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: No changes detected
+      if: steps.verify-changed-files.outputs.changed == 'false'
+      run: echo "No changes to commit"
