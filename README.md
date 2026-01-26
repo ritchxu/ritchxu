@@ -1,5 +1,6 @@
 # ritchxu 😄
 
+<!-- ASCII art of Pikachu, the beloved Pokemon character -->
 ```
          ⢀⣀⣀⡀                    
       ⢀⣴⠟⠋⠉⠙⠻⣦⡀                  
